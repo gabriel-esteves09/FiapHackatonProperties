@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="FHCK_Properties.API/FHCK_Properties.API.csproj" />
+  <Project Path="FHCK_Properties.Application/FHCK_Properties.Application.csproj" />
+  <Project Path="FHCK_Properties.Domain/FHCK_Properties.Domain.csproj" />
+  <Project Path="FHCK_Properties.Infrastructure/FHCK_Properties.Infrastructure.csproj" />
+  <Project Path="FHCK_Properties.Test/FHCK_Properties.Test.csproj" />
+</Solution>
