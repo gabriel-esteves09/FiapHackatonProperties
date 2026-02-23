@@ -1,13 +1,13 @@
 trigger:
   branches:
     include:
-      - '*'  # Qualquer branch
+      - master   # Executa apenas quando houver push na master
 
 pr:
   branches:
     include:
-      - master  # PRs para master
-
+      - master   # Executa apenas para PRs com destino à master
+      
 pool:
   vmImage: 'ubuntu-latest'
 
