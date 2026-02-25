@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres-fiap-properties
+    environment:
+      POSTGRES_DB: fhck_properties
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  fiap-api-properties:
+    build: .
+    container_name: fiap-api-properties
+    ports:
+      - "5001:8080"
+    environment:
+      ConnectionStrings__DefaultConnection: Host=postgres;Port=5432;Database=fhck_properties;Username=postgres;Password=postgres123
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
