@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fiap-api-properties
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fiap-api-properties
+  template:
+    metadata:
+      labels:
+        app: fiap-api-properties
+    spec:
+      containers:
+        - name: fiap-api-properties
+          image: fiap-api-properties:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Development"
+            - name: ConnectionStrings__DefaultConnection
+              value: "Host=postgres;Port=5432;Database=fhck_properties;Username=postgres;Password=postgres123"

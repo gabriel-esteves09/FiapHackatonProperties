@@ -80,6 +80,13 @@ var app = builder.Build();
     app.UseSwaggerUI();
 //}
 
+// Redirecionamento da raiz para /swagger
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/swagger");
+    return Task.CompletedTask;
+});
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
